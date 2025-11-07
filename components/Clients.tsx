@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { companies, testimonials } from "@/data";
+import { testimonials, tools } from "@/data";
 import { InfiniteMovingCards } from "./ui/InfiniteCards";
 
 const Clients = () => {
@@ -25,23 +25,19 @@ const Clients = () => {
           />
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-16 max-lg:mt-10">
-          {companies.map((company) => (
-            <React.Fragment key={company.id}>
-              <div className="flex md:max-w-60 max-w-32 gap-2">
-                <img
-                  src={company.img}
-                  alt={company.name}
-                  className="md:w-10 w-5"
-                />
-                <img
-                  src={company.nameImg}
-                  alt={company.name}
-                  width={company.id === 4 || company.id === 5 ? 100 : 150}
-                  className="md:w-24 w-20"
-                />
-              </div>
-            </React.Fragment>
+        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 max-lg:mt-10">
+          {/* <h1 className="text-3xl text-white">Tools I am frequent with</h1> */}
+          {tools.map((tool, idx) => (
+            <div key={idx} className="flex flex-col items-center gap-2">
+              <img
+                src={tool.icon}
+                alt={tool.name}
+                className="w-8 h-8 md:w-12 md:h-12"
+              />
+              <span className="text-white-200 text-xs md:text-sm">
+                {tool.name}
+              </span>
+            </div>
           ))}
         </div>
       </div>
