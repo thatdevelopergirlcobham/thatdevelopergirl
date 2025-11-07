@@ -37,7 +37,7 @@ const BestFit = () => {
           </p>
         </div>
 
-        <div className="w-full h-full">
+        <div className="w-full">
           <div className="relative overflow-hidden rounded-3xl border border-white/[0.1] h-full">
             <img
               src="/dawn3.jpeg"
