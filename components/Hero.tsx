@@ -60,13 +60,24 @@ const Hero = () => {
             Hello, I am Dawn Cobham, a web developer based in the Nigeria.
           </p>
 
-          <a href="#about">
-            <MagicButton
-              title="Show my work"
-              icon={<FaLocationArrow />}
-              position="right"
-            />
-          </a>
+          <div className="flex flex-col md:flex-row gap-4 items-center">
+            <a href="#about">
+              <MagicButton
+                title="Show my work"
+                icon={<FaLocationArrow />}
+                position="right"
+              />
+            </a>
+
+            <a href="/Dawn_Cobham_Front_End_Engineer.pdf" download>
+              <MagicButton
+                title="Download CV"
+                icon={<FaLocationArrow className="rotate-0" />}
+                position="right"
+                otherClasses="!bg-[#161a31]"
+              />
+            </a>
+          </div>
         </div>
       </div>
     </div>

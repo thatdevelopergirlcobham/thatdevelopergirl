@@ -11,8 +11,12 @@ import Experience from "@/components/Experience";
 import RecentProjects from "@/components/RecentProjects";
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
 import BestFit from "@/components/BestFit";
+import ContactModal from "@/components/ContactModal";
+import { useState } from "react";
 
 const Home = () => {
+  const [isContactOpen, setIsContactOpen] = useState(false);
+
   return (
     <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
       <div className="max-w-7xl w-full">
@@ -24,7 +28,11 @@ const Home = () => {
         <Experience />
         <Approach />
         <BestFit />
-        <Footer />
+        <Footer onContactPress={() => setIsContactOpen(true)} />
+        <ContactModal
+          isOpen={isContactOpen}
+          onClose={() => setIsContactOpen(false)}
+        />
       </div>
     </main>
   );

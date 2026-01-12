@@ -8,7 +8,8 @@ export const navItems = [
 export const gridItems = [
   {
     id: 1,
-    title: "I prioritize client collaboration, fostering open communication ",
+    title:
+      "I prioritize collaborative client partnerships, fostering transparent and consistent communication.",
     description: "",
     className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
     imgClassName: "w-full h-full",
@@ -18,7 +19,8 @@ export const gridItems = [
   },
   {
     id: 2,
-    title: "I'm very flexible with time zone communications",
+    title:
+      "Adaptable to global time zones, ensuring seamless communication across borders.",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
@@ -28,7 +30,7 @@ export const gridItems = [
   },
   {
     id: 3,
-    title: "",
+    title: "My Tech Stack",
     description: "I constantly try to improve on",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
@@ -38,7 +40,8 @@ export const gridItems = [
   },
   {
     id: 4,
-    title: "Passionate web developer with a strong knack for design.",
+    title:
+      "Passionate frontend engineer with a keen eye for aesthetic design and pixel-perfect implementation.",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imgClassName: "",
@@ -49,8 +52,9 @@ export const gridItems = [
 
   {
     id: 5,
-    title: "Currently building a waste management system for Calabar.",
-    description: "Latest Project...",
+    title:
+      "Spearheading the 'CleanCal' initiative: A smart, data-driven waste management ecosystem.",
+    description: "Current Endeavor",
     className: "md:col-span-3 md:row-span-2",
     imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
     titleClassName: "justify-center md:justify-start lg:justify-center",
@@ -59,7 +63,7 @@ export const gridItems = [
   },
   {
     id: 6,
-    title: "Do you want to start a project together?",
+    title: "Ready to bring your vision to life?",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imgClassName: "",
@@ -73,7 +77,7 @@ export const projects = [
   {
     id: 1,
     title: "Nexora Health",
-    des: "A platform that helps user track different pharmamcies and get drugs online",
+    des: "A comprehensive healthcare platform enabling users to locate pharmacies and procure medications online.",
     img: "/nexora.png",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg"],
     link: "https://nexora-health.netlify.app",
@@ -81,7 +85,7 @@ export const projects = [
   {
     id: 2,
     title: "Legal Management System",
-    des: "Hire A Lawyer on the platform, and communicate ideas with them for legal cases.",
+    des: "A robust platform connecting clients with legal professionals, facilitating case management and secure communication.",
     img: "/legal.png",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg"],
     link: "https://legal-management-system-wine.vercel.app",
@@ -89,23 +93,15 @@ export const projects = [
   {
     id: 3,
     title: "Mental Health Management System",
-    des: "A system that helps people suffering from mental health issues communicate with mental health professionals also having a chat-based feature.",
+    des: "A supportive platform bridging patients with mental health professionals, featuring real-time chat capabilities.",
     img: "/mental.png",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg"],
     link: "https://mental-health-management-system-blue.vercel.app",
   },
-  // {
-  //   id: 4,
-  //   title: "Netflix CLone",
-  //   des: "Recreated the Official Netflic login page using HTML, CSS and JS.",
-  //   img: "/p4.svg",
-  //   iconLists: ["/html.svg", "/css.svg", "/js.svg"],
-  //   link: "https://netflix-clone-rho-eight-50.vercel.app",
-  // },
   {
-    id: 5,  
-    title: "Netflix CLone",
-    des: "Recreated the Official Netflix login page using HTML and CSS.",
+    id: 5,
+    title: "Netflix Clone",
+    des: "A high-fidelity recreation of the Netflix authentication interface, demonstrating proficiency in modern CSS and responsive design.",
     img: "/netflix.png",
     iconLists: ["/html.svg", "/css.svg"],
     link: "https://netflix-clone-rho-eight-50.vercel.app",
@@ -118,7 +114,7 @@ export const testimonials = [
       "Collaborating with Dawn was an absolute pleasure. Her professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Dawn's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Dawn is the ideal partner.",
     name: "Ruby Boer",
     title: "Virtual Assistant",
-  }
+  },
 ];
 
 export const companies = [
@@ -127,7 +123,7 @@ export const companies = [
     name: "cloudinary",
     img: "/cloud.svg",
     nameImg: "/cloudName.svg",
-  }
+  },
 ];
 
 export const tools = [
@@ -146,16 +142,23 @@ export const tools = [
 
 export const workExperience = [
   {
+    id: 1,
+    title: "Frontend Developer at Zeroup Academy",
+    desc: "Engineered scalable frontend architectures for ed-tech solutions, optimizing diverse web applications for maximum performance and user engagement.",
+    className: "md:col-span-2",
+    thumbnail: "/exp1.svg",
+  },
+  {
     id: 2,
     title: "Web Developer at Guru Innovation Hub",
-    desc: "Designed and developed web and mobile friendly webistes that solve real life problems",
+    desc: "Delivered high-impact, responsive web solutions addressing core business challenges, ensuring 100% cross-platform compatibility and accessibility.",
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/exp2.svg",
   },
   {
-    id: 1,
+    id: 3,
     title: "Frontend Engineer Intern",
-    desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+    desc: "Accelerated development cycles by building dynamic, reusable React components, significantly enhancing application interactivity.",
     className: "md:col-span-2",
     thumbnail: "/exp1.svg",
   },
@@ -163,7 +166,7 @@ export const workExperience = [
   {
     id: 4,
     title: "Lead Frontend Developer at Go Learners",
-    desc: "Developed and maintained user-facing features using modern frontend technologies.",
+    desc: "Spearheaded the development of user-centric features, leveraging modern frontend frameworks to dramatically improve user retention and experience.",
     className: "md:col-span-2",
     thumbnail: "/exp4.svg",
   },
