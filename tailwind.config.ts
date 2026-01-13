@@ -26,6 +26,10 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-jakarta)", "sans-serif"],
+        display: ["var(--font-space)", "sans-serif"],
+      },
       colors: {
         black: {
           DEFAULT: "#000",

@@ -42,7 +42,7 @@ const Hero = () => {
 
       <div className="flex justify-center relative my-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-          <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
+          <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80 font-sans">
             Crafting Interactive Web Experiences with Frontend Magic
           </p>
 
@@ -53,11 +53,11 @@ const Hero = () => {
            */}
           <TextGenerateEffect
             words="Turning Ideas into Beautiful, Responsive, and Engaging Interfaces"
-            className="text-center text-[40px] md:text-5xl lg:text-6xl"
+            className="text-center text-[40px] md:text-6xl lg:text-7xl font-display font-bold tracking-tight"
           />
 
-          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            Hello, I am Dawn Cobham, a web developer based in the Nigeria.
+          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl font-sans mt-4">
+            Hello, I am Dawn Cobham, a web developer based in Nigeria.
           </p>
 
           <div className="flex flex-col md:flex-row gap-4 items-center">

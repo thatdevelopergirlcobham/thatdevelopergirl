@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { IoClose } from "react-icons/io5";
+import emailjs from "@emailjs/browser";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -21,17 +22,45 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("Submitting form..."); // Debug log
     setStatus("submitting");
-    // Simulate API call
-    setTimeout(() => {
-      console.log("Form submitted:", formData);
-      setStatus("success");
-      setTimeout(() => {
-        setStatus("idle");
-        setFormData({ name: "", email: "", message: "" });
-        onClose();
-      }, 2000);
-    }, 1000);
+
+    // Replace these with your actual Service ID, Template ID, and Public Key from EmailJS
+    const serviceId = "service_pvmu2sg";
+    const templateId = "template_oqbat1j";
+    const publicKey = "7pQk7xFbXaGGUxxZ0";
+
+    const templateParams = {
+      from_name: formData.name,
+      to_name: "Dawn Cobham", // Your name
+      from_email: formData.email,
+      message: formData.message,
+    };
+
+    console.log("Sending email with params:", templateParams); // Debug log
+
+    try {
+      emailjs.send(serviceId, templateId, templateParams, publicKey).then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          setStatus("success");
+          setTimeout(() => {
+            setStatus("idle");
+            setFormData({ name: "", email: "", message: "" });
+            onClose();
+          }, 3000);
+        },
+        (error) => {
+          console.error("FAILED...", error); // Use error log
+          setStatus("idle");
+          alert(`Failed to send message: ${JSON.stringify(error)}`); // Show error in alert
+        }
+      );
+    } catch (error) {
+      console.error("Error calling emailjs:", error);
+      setStatus("idle");
+      alert("An unexpected error occurred.");
+    }
   };
 
   return (

@@ -17,45 +17,13 @@ export const gridItems = [
     img: "/dawn1.jpeg",
     spareImg: "",
   },
-  {
-    id: 2,
-    title:
-      "Adaptable to global time zones, ensuring seamless communication across borders.",
-    description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
-    imgClassName: "",
-    titleClassName: "justify-start",
-    img: "",
-    spareImg: "",
-  },
-  {
-    id: 3,
-    title: "My Tech Stack",
-    description: "I constantly try to improve on",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
-    imgClassName: "",
-    titleClassName: "justify-center",
-    img: "",
-    spareImg: "",
-  },
-  {
-    id: 4,
-    title:
-      "Passionate frontend engineer with a keen eye for aesthetic design and pixel-perfect implementation.",
-    description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-1",
-    imgClassName: "",
-    titleClassName: "justify-start",
-    img: "/grid.svg",
-    spareImg: "/b4.svg",
-  },
 
   {
     id: 5,
     title:
       "Spearheading the 'CleanCal' initiative: A smart, data-driven waste management ecosystem.",
     description: "Current Endeavor",
-    className: "md:col-span-3 md:row-span-2",
+    className: "md:col-span-2 md:row-span-2",
     imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
     titleClassName: "justify-center md:justify-start lg:justify-center",
     img: "/cleancal.png",
@@ -105,6 +73,14 @@ export const projects = [
     img: "/netflix.png",
     iconLists: ["/html.svg", "/css.svg"],
     link: "https://netflix-clone-rho-eight-50.vercel.app",
+  },
+  {
+    id: 6,
+    title: "CleanCal",
+    des: "A smart, data-driven waste management ecosystem. Spearheading the 'CleanCal' initiative.",
+    img: "/cleancal.png",
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg"],
+    link: "https://github.com/thatdevelopergirlcobham",
   },
 ];
 
