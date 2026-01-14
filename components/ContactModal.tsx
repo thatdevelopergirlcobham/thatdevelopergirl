@@ -91,7 +91,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
               Send me a message
             </h2>
             <p className="text-white/60 mb-6">
-              I'll get back to you as soon as possible.
+              I&apos;ll get back to you as soon as possible.
             </p>
 
             {status === "success" ? (
