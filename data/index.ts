@@ -6,34 +6,34 @@ export const navItems = [
 ];
 
 export const gridItems = [
-  {
-    id: 1,
-    title:
-      "I prioritize collaborative client partnerships, fostering transparent and consistent communication.",
-    description: "",
-    className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
-    imgClassName: "w-full h-full",
-    titleClassName: "justify-end",
-    img: "/dawn1.jpeg",
-    spareImg: "",
-  },
+  // {
+  //   id: 1,
+  //   title:
+  //     "I prioritize collaborative client partnerships, fostering transparent and consistent communication.",
+  //   description: "",
+  //   className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
+  //   imgClassName: "w-full h-full",
+  //   titleClassName: "justify-end",
+  //   img: "/dawn1.jpeg",
+  //   spareImg: "",
+  // },
 
-  {
-    id: 5,
-    title:
-      "Spearheading the 'CleanCal' initiative: A smart, data-driven waste management ecosystem.",
-    description: "Current Endeavor",
-    className: "md:col-span-2 md:row-span-2",
-    imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
-    titleClassName: "justify-center md:justify-start lg:justify-center",
-    img: "/cleancal.png",
-    spareImg: "/grid.svg",
-  },
+  // {
+  //   id: 5,
+  //   title:
+  //     "Spearheading the 'CleanCal' initiative: A smart, data-driven waste management ecosystem.",
+  //   description: "Current Endeavor",
+  //   className: "md:col-span-2 md:row-span-2",
+  //   imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
+  //   titleClassName: "justify-center md:justify-start lg:justify-center",
+  //   img: "/cleancal.png",
+  //   spareImg: "/grid.svg",
+  // },
   {
     id: 6,
     title: "Ready to bring your vision to life?",
     description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-1",
+    className: "lg:col-span-5 md:col-span-3 md:row-span-1",
     imgClassName: "",
     titleClassName: "justify-center md:max-w-full max-w-60 text-center",
     img: "",
@@ -81,6 +81,22 @@ export const projects = [
     img: "/cleancal.png",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg"],
     link: "https://github.com/thatdevelopergirlcobham",
+  },
+  {
+    id: 7,
+    title: "Unleashed Bites by Fawaz",
+    des: "A seamless, no-login food ordering web app that enables customers to order and track meals in real time while helping vendors manage their business efficiently.",
+    img: "/unleashedbites.png",
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg"],
+    link: "https://unleashedbitesbyfawaz.vercel.app/",
+  },
+  {
+    id: 8,
+    title: "Simple Notes",
+    des: "A clean, minimal notes-taking app for jotting down and managing your thoughts quickly, built with Zustand for seamless state management.",
+    img: "/notesapp.png",
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg"],
+    link: "https://notes-app-zustand.vercel.app/",
   },
 ];
 

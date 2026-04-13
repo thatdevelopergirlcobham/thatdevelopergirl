@@ -24,14 +24,14 @@ const Home = () => {
       <div className="max-w-7xl w-full">
         <FloatingNav navItems={navItems} />
         <Hero />
-        <Grid />
-        <GlobeSection />
+        {/* <Grid /> */}
+        {/* <GlobeSection /> */}
         <RecentProjects />
         <Certifications />
         <Clients />
         <Experience />
         <Approach />
-        <BestFit />
+        {/* <BestFit /> */}
         <Footer onContactPress={() => setIsContactOpen(true)} />
         <ContactModal
           isOpen={isContactOpen}

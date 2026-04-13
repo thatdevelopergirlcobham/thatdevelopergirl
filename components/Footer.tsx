@@ -1,7 +1,11 @@
-import { FaLocationArrow } from "react-icons/fa6";
+import { FaLocationArrow, FaWhatsapp } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 
 import { socialMedia } from "@/data";
 import MagicButton from "./MagicButton";
+
+const WHATSAPP_NUMBER = "2349165586474";
+const EMAIL = "thatdevelopergirlcobham@gmail.com";
 
 const Footer = ({ onContactPress }: { onContactPress: () => void }) => {
   return (
@@ -11,27 +15,55 @@ const Footer = ({ onContactPress }: { onContactPress: () => void }) => {
         <img
           src="/footer-grid.svg"
           alt="grid"
-          className="w-full h-full opacity-50 "
+          className="w-full h-full opacity-50"
         />
       </div>
 
       <div className="flex flex-col items-center">
         <h1 className="heading lg:max-w-[45vw] font-display font-bold">
-          Ready to take <span className="text-purple">your</span> digital
-          presence to the next level?
+          Ready to bring your <span className="text-purple">vision</span> to life?
         </h1>
         <p className="text-white-200 md:mt-10 my-5 text-center">
           Reach out to me today and let&apos;s discuss how I can help you
           achieve your goals.
         </p>
-        <div onClick={onContactPress} className="cursor-pointer">
-          <MagicButton
-            title="Send me a message"
-            icon={<FaLocationArrow />}
-            position="right"
-          />
+
+        {/* Contact buttons */}
+        <div className="flex flex-col sm:flex-row items-center gap-4 mt-2">
+          {/* WhatsApp */}
+          <a
+            href={`https://wa.me/${WHATSAPP_NUMBER}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <MagicButton
+              title="Chat on WhatsApp"
+              icon={<FaWhatsapp />}
+              position="left"
+              otherClasses="!bg-[#161A31]"
+            />
+          </a>
+
+          {/* Send a message (opens modal) */}
+          <div onClick={onContactPress} className="cursor-pointer">
+            <MagicButton
+              title="Send me a message"
+              icon={<FaLocationArrow />}
+              position="right"
+            />
+          </div>
         </div>
+
+        {/* Email */}
+        <a
+          href={`mailto:${EMAIL}`}
+          className="flex items-center gap-2 mt-6 text-white-200 hover:text-purple transition-colors text-sm md:text-base"
+        >
+          <MdEmail size={18} />
+          {EMAIL}
+        </a>
       </div>
+
       <div className="flex mt-16 md:flex-row flex-col justify-between items-center">
         <p className="md:text-base text-sm md:font-normal font-light font-sans">
           Copyright © thatdevelopergirlcobham
