@@ -43,6 +43,14 @@ export const gridItems = [
 
 export const projects = [
   {
+    id: 0,
+    title: "Crea8Invoice",
+    des: "A sleek invoice tracking app with immersive 3D visuals, real-time state management, and a polished UI — built with Next.js, Tailwind, Zustand, and Three.js.",
+    img: "/crea8invoice.png",
+    iconLists: ["/next.svg", "/tail.svg", "/three.svg", "/ts.svg"],
+    link: "https://crea8invoice.vercel.app/",
+  },
+  {
     id: 1,
     title: "Nexora Health",
     des: "A comprehensive healthcare platform enabling users to locate pharmacies and procure medications online.",

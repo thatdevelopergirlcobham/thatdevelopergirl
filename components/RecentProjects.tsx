@@ -102,7 +102,7 @@ const RecentProjects = () => {
                 className="flex lg:text-xl md:text-xs text-sm text-purple items-center hover:text-white transition-colors"
               >
                 Check Live Site
-                <FaLocationArrow className="ms-3" color="#CBACF9" />
+                <FaLocationArrow className="ms-3" color="#60A5FA" />
               </a>
             </div>
           </div>
