@@ -51,6 +51,14 @@ export const projects = [
     link: "https://crea8invoice.vercel.app/",
   },
   {
+    id: 8,
+    title: "Simple Notes",
+    des: "A clean, minimal notes-taking app for jotting down and managing your thoughts quickly, built with Zustand for seamless state management.",
+    img: "/notesapp.png",
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg"],
+    link: "https://notes-app-zustand.vercel.app/",
+  },
+  {
     id: 1,
     title: "Nexora Health",
     des: "A comprehensive healthcare platform enabling users to locate pharmacies and procure medications online.",
@@ -97,15 +105,7 @@ export const projects = [
     img: "/unleashedbites.png",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg"],
     link: "https://unleashedbitesbyfawaz.vercel.app/",
-  },
-  {
-    id: 8,
-    title: "Simple Notes",
-    des: "A clean, minimal notes-taking app for jotting down and managing your thoughts quickly, built with Zustand for seamless state management.",
-    img: "/notesapp.png",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg"],
-    link: "https://notes-app-zustand.vercel.app/",
-  },
+  }
 ];
 
 export const testimonials = [
