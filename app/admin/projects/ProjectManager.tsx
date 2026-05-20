@@ -58,7 +58,7 @@ export default function ProjectManager({ projects }: ProjectManagerProps) {
           <FolderOpen size={32} className="text-[#4a4f6a] mx-auto mb-3" />
           <p className="text-[#4a4f6a] text-sm">No projects added yet.</p>
           <p className="text-[#4a4f6a] text-xs mt-1">
-            Click "Add Project" above to add your first project.
+            Click &quot;Add Project&quot; above to add your first project.
           </p>
         </div>
       ) : (
