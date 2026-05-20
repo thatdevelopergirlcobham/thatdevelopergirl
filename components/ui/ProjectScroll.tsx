@@ -62,7 +62,10 @@ function ProjectCard({
       style={{ width: 400, height: 460 }}
     >
       {/* Image */}
-      <div className="relative overflow-hidden flex-shrink-0" style={{ height: 230 }}>
+      <div
+        className="relative overflow-hidden flex-shrink-0"
+        style={{ height: 230 }}
+      >
         <img
           src={item.img}
           alt={item.title}
@@ -118,12 +121,14 @@ export const ProjectScroll = ({
   items,
   onCardClick,
   className,
+  isLoading,
 }: {
   items: ProjectItem[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
   pauseOnHover?: boolean;
   className?: string;
+  isLoading?: boolean;
   onCardClick: (item: ProjectItem) => void;
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -139,7 +144,10 @@ export const ProjectScroll = ({
 
   useEffect(() => {
     if (!isMobile && containerRef.current) {
-      containerRef.current.style.setProperty("--animation-direction", "forwards");
+      containerRef.current.style.setProperty(
+        "--animation-direction",
+        "forwards",
+      );
       containerRef.current.style.setProperty("--animation-duration", "60s");
       setStart(true);
     }
@@ -150,18 +158,26 @@ export const ProjectScroll = ({
     return (
       <div
         className="overflow-x-auto [&::-webkit-scrollbar]:hidden"
-        style={{
-          scrollSnapType: "x mandatory",
-          scrollbarWidth: "none",
-          WebkitOverflowScrolling: "touch",
-        } as React.CSSProperties}
+        style={
+          {
+            scrollSnapType: "x mandatory",
+            scrollbarWidth: "none",
+            WebkitOverflowScrolling: "touch",
+          } as React.CSSProperties
+        }
       >
         <ul className="flex gap-4 px-6 py-4 w-max">
-          {items.map((item) => (
-            <li key={item.id} className="snap-start">
-              <ProjectCard item={item} onClick={() => onCardClick(item)} />
-            </li>
-          ))}
+          {isLoading
+            ? Array.from({ length: 4 }).map((_, i) => (
+                <li key={`skeleton-${i}`} className="snap-start">
+                  <div className="w-80 h-[460px] rounded-2xl bg-white/3 animate-pulse" />
+                </li>
+              ))
+            : items.map((item) => (
+                <li key={item.id} className="snap-start">
+                  <ProjectCard item={item} onClick={() => onCardClick(item)} />
+                </li>
+              ))}
         </ul>
       </div>
     );
@@ -176,20 +192,29 @@ export const ProjectScroll = ({
       {/* Left fade */}
       <div
         className="absolute left-0 top-0 h-full w-28 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(to right, #000319 20%, transparent 100%)" }}
+        style={{
+          background:
+            "linear-gradient(to right, #000319 20%, transparent 100%)",
+        }}
       />
       <ul
         className={cn(
           "flex min-w-full shrink-0 gap-5 py-6 w-max flex-nowrap",
-          start && "animate-scroll"
+          start && "animate-scroll",
         )}
       >
         {/* Duplicate items for seamless loop */}
-        {[...items, ...items].map((item, i) => (
-          <li key={`${item.id}-${i}`} className="flex-shrink-0">
-            <ProjectCard item={item} onClick={() => onCardClick(item)} />
-          </li>
-        ))}
+        {isLoading
+          ? Array.from({ length: 6 }).map((_, i) => (
+              <li key={`skeleton-${i}`} className="flex-shrink-0">
+                <div className="w-[400px] h-[460px] rounded-2xl bg-white/3 animate-pulse" />
+              </li>
+            ))
+          : [...items, ...items].map((item, i) => (
+              <li key={`${item.id}-${i}`} className="flex-shrink-0">
+                <ProjectCard item={item} onClick={() => onCardClick(item)} />
+              </li>
+            ))}
       </ul>
     </div>
   );

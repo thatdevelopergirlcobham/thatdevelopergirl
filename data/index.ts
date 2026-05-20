@@ -41,64 +41,8 @@ export const gridItems = [
   },
 ];
 
-export const projects = [
-  {
-    id: 0,
-    title: "Crea8Invoice",
-    des: "A sleek invoice tracking app with immersive 3D visuals, real-time state management, and a polished UI — built with Next.js, Tailwind, Zustand, and Three.js.",
-    img: "/crea8invoice.png",
-    iconLists: ["/next.svg", "/tail.svg", "/three.svg", "/ts.svg"],
-    link: "https://crea8invoice.vercel.app/",
-  },
-  {
-    id: 8,
-    title: "Simple Notes",
-    des: "A clean, minimal notes-taking app for jotting down and managing your thoughts quickly, built with Zustand for seamless state management.",
-    img: "/notesapp.png",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg"],
-    link: "https://notes-app-zustand.vercel.app/",
-  },
-  {
-    id: 1,
-    title: "Nexora Health",
-    des: "A comprehensive healthcare platform enabling users to locate pharmacies and procure medications online.",
-    img: "/nexora.png",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg"],
-    link: "https://nexora-health.netlify.app",
-  },
-  {
-    id: 9,
-    title: "ZeroUp Partners",
-    des: "A contribution and partnership platform by ZeroUp — connecting contributors, NGOs, and personal project owners in one collaborative space.",
-    img: "/partners-app.jpeg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/supabase.svg"],
-    link: "https://github.com/thatdevelopergirlcobham",
-  },
-  {
-    id: 10,
-    title: "MicroCollab",
-    des: "A team collaboration platform built for modern teams — enabling seamless task management, real-time communication, and project coordination in one place.",
-    img: "/microcollab.jpeg",
-    iconLists: ["/next.svg", "/re.svg", "/tail.svg", "/ts.svg"],
-    link: "https://github.com/thatdevelopergirlcobham",
-  },
-  {
-    id: 5,
-    title: "Netflix Clone",
-    des: "A high-fidelity recreation of the Netflix authentication interface, demonstrating proficiency in modern CSS and responsive design.",
-    img: "/netflix.png",
-    iconLists: ["/html.svg", "/css.svg"],
-    link: "https://netflix-clone-rho-eight-50.vercel.app",
-  },
-  {
-    id: 7,
-    title: "Unleashed Bites by Fawaz",
-    des: "A seamless, no-login food ordering web app that enables customers to order and track meals in real time while helping vendors manage their business efficiently.",
-    img: "/unleashedbites.png",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg"],
-    link: "https://unleashedbitesbyfawaz.vercel.app/",
-  },
-];
+// Projects list intentionally empty — real projects are loaded from the API.
+export const projects: any[] = [];
 
 export const testimonials = [
   {

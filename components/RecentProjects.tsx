@@ -3,26 +3,18 @@
 import { useEffect, useState } from "react";
 import { ProjectScroll, type ProjectItem } from "./ui/ProjectScroll";
 import ProjectModal from "./ui/ProjectModal";
-import { projects as staticProjects } from "@/data";
-
-const FALLBACK: ProjectItem[] = staticProjects.map((p) => ({
-  id: p.id,
-  title: p.title,
-  des: p.des,
-  img: p.img,
-  iconLists: p.iconLists,
-  link: p.link,
-  github: "",
-}));
 
 export default function RecentProjects() {
-  const [items, setItems] = useState<ProjectItem[]>(FALLBACK);
+  const [items, setItems] = useState<ProjectItem[]>([]);
+  const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState<ProjectItem | null>(null);
 
   useEffect(() => {
+    let mounted = true;
     fetch("/api/projects")
       .then((r) => r.json())
       .then((data) => {
+        if (!mounted) return;
         if (data.projects && data.projects.length > 0) {
           const mapped: ProjectItem[] = data.projects.map((p: any) => ({
             id: p.id,
@@ -35,11 +27,14 @@ export default function RecentProjects() {
           }));
           setItems(mapped);
         }
-        // if no real projects, keep showing the static fallback
       })
       .catch(() => {
-        // keep fallback on network error
-      });
+        // ignore network error; keep items empty
+      })
+      .finally(() => mounted && setLoading(false));
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   return (
@@ -56,6 +51,7 @@ export default function RecentProjects() {
 
       <ProjectScroll
         items={items}
+        isLoading={loading}
         onCardClick={(item) => setSelected(item)}
       />
 
