@@ -67,20 +67,20 @@ export const projects = [
     link: "https://nexora-health.netlify.app",
   },
   {
-    id: 2,
-    title: "Legal Management System",
-    des: "A robust platform connecting clients with legal professionals, facilitating case management and secure communication.",
-    img: "/legal.png",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg"],
-    link: "https://legal-management-system-wine.vercel.app",
+    id: 9,
+    title: "ZeroUp Partners",
+    des: "A contribution and partnership platform by ZeroUp — connecting contributors, NGOs, and personal project owners in one collaborative space.",
+    img: "/partners-app.jpeg",
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/supabase.svg"],
+    link: "https://github.com/thatdevelopergirlcobham",
   },
   {
-    id: 3,
-    title: "Mental Health Management System",
-    des: "A supportive platform bridging patients with mental health professionals, featuring real-time chat capabilities.",
-    img: "/mental.png",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg"],
-    link: "https://mental-health-management-system-blue.vercel.app",
+    id: 10,
+    title: "MicroCollab",
+    des: "A team collaboration platform built for modern teams — enabling seamless task management, real-time communication, and project coordination in one place.",
+    img: "/microcollab.jpeg",
+    iconLists: ["/next.svg", "/re.svg", "/tail.svg", "/ts.svg"],
+    link: "https://github.com/thatdevelopergirlcobham",
   },
   {
     id: 5,
@@ -91,21 +91,13 @@ export const projects = [
     link: "https://netflix-clone-rho-eight-50.vercel.app",
   },
   {
-    id: 6,
-    title: "CleanCal",
-    des: "A smart, data-driven waste management ecosystem. Spearheading the 'CleanCal' initiative.",
-    img: "/cleancal.png",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg"],
-    link: "https://github.com/thatdevelopergirlcobham",
-  },
-  {
     id: 7,
     title: "Unleashed Bites by Fawaz",
     des: "A seamless, no-login food ordering web app that enables customers to order and track meals in real time while helping vendors manage their business efficiently.",
     img: "/unleashedbites.png",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg"],
     link: "https://unleashedbitesbyfawaz.vercel.app/",
-  }
+  },
 ];
 
 export const testimonials = [

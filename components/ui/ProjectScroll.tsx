@@ -1,168 +1,193 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import React, { useEffect, useState } from "react";
-import { FaLocationArrow } from "react-icons/fa6";
+import React, { useEffect, useRef, useState } from "react";
+
+export type ProjectItem = {
+  id: number | string;
+  title: string;
+  des: string;
+  img: string;
+  iconLists: string[];
+  link?: string;
+  github?: string;
+};
+
+const TECH_LABELS: Record<string, string> = {
+  "/re.svg": "React",
+  "/next.svg": "Next.js",
+  "/ts.svg": "TypeScript",
+  "/tail.svg": "Tailwind",
+  "/js.svg": "JavaScript",
+  "/html.svg": "HTML",
+  "/css.svg": "CSS",
+  "/three.svg": "Three.js",
+  "/supabase.svg": "Supabase",
+  "/mongodb.svg": "MongoDB",
+  "/git.svg": "Git",
+  "/github.svg": "GitHub",
+  "/cloud.svg": "Cloudinary",
+};
+
+function getTechLabel(icon: string) {
+  return TECH_LABELS[icon] ?? icon.replace(/^\//, "").replace(/\.svg$/, "");
+}
+
+function TechBadge({ icon }: { icon: string }) {
+  const label = getTechLabel(icon);
+  return (
+    <span className="inline-flex items-center gap-1.5 px-2.5 py-[5px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[11px] font-medium text-[#a0a5be] whitespace-nowrap leading-none">
+      <img
+        src={icon}
+        alt={label}
+        draggable={false}
+        className="w-3 h-3 object-contain opacity-75 flex-shrink-0"
+      />
+      {label}
+    </span>
+  );
+}
+
+function ProjectCard({
+  item,
+  onClick,
+}: {
+  item: ProjectItem;
+  onClick: () => void;
+}) {
+  return (
+    <div
+      onClick={onClick}
+      className="group relative flex-shrink-0 rounded-2xl overflow-hidden border border-white/[0.07] bg-[#0b0d1e] cursor-pointer transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-white/[0.14]"
+      style={{ width: 400, height: 460 }}
+    >
+      {/* Image */}
+      <div className="relative overflow-hidden flex-shrink-0" style={{ height: 230 }}>
+        <img
+          src={item.img}
+          alt={item.title}
+          draggable={false}
+          className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+          onError={(e) => {
+            e.currentTarget.style.display = "none";
+          }}
+        />
+        {/* Subtle bottom-only gradient — top of image stays fully clear */}
+        <div
+          className="absolute inset-x-0 bottom-0 pointer-events-none"
+          style={{
+            height: "48%",
+            background:
+              "linear-gradient(to top, #0b0d1e 0%, rgba(11,13,30,0.45) 50%, transparent 100%)",
+          }}
+        />
+        {/* Hover hint */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span className="text-white text-xs font-medium bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+            View details
+          </span>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-col px-5 pt-4 pb-5" style={{ height: 230 }}>
+        <h3 className="text-white font-bold text-[17px] leading-snug tracking-tight line-clamp-1 mb-2">
+          {item.title}
+        </h3>
+        <p className="text-[#7a7f9a] text-[13px] leading-relaxed line-clamp-2 mb-3 flex-shrink-0">
+          {item.des}
+        </p>
+        {item.iconLists.length > 0 && (
+          <div className="flex flex-wrap gap-1.5">
+            {item.iconLists.slice(0, 4).map((icon, i) => (
+              <TechBadge key={i} icon={icon} />
+            ))}
+            {item.iconLists.length > 4 && (
+              <span className="inline-flex items-center px-2.5 py-[5px] rounded-full bg-white/[0.04] border border-white/[0.06] text-[11px] text-[#4a4f6a] leading-none">
+                +{item.iconLists.length - 4}
+              </span>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export const ProjectScroll = ({
   items,
-  direction = "left",
-  speed = "fast",
-  pauseOnHover = true,
+  onCardClick,
   className,
 }: {
-  items: {
-    id: number;
-    title: string;
-    des: string;
-    img: string;
-    iconLists: string[];
-    link: string;
-  }[];
+  items: ProjectItem[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
   pauseOnHover?: boolean;
   className?: string;
+  onCardClick: (item: ProjectItem) => void;
 }) => {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const scrollerRef = React.useRef<HTMLUListElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [start, setStart] = useState(false);
 
   useEffect(() => {
-    addAnimation();
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
-  const [start, setStart] = useState(false);
-  function addAnimation() {
-    if (containerRef.current && scrollerRef.current) {
-      const scrollerContent = Array.from(scrollerRef.current.children);
 
-      scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true);
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(duplicatedItem);
-        }
-      });
-
-      getDirection();
-      getSpeed();
+  useEffect(() => {
+    if (!isMobile && containerRef.current) {
+      containerRef.current.style.setProperty("--animation-direction", "forwards");
+      containerRef.current.style.setProperty("--animation-duration", "60s");
       setStart(true);
     }
+  }, [isMobile]);
+
+  /* Mobile: native swipe scroll */
+  if (isMobile) {
+    return (
+      <div
+        className="overflow-x-auto [&::-webkit-scrollbar]:hidden"
+        style={{
+          scrollSnapType: "x mandatory",
+          scrollbarWidth: "none",
+          WebkitOverflowScrolling: "touch",
+        } as React.CSSProperties}
+      >
+        <ul className="flex gap-4 px-6 py-4 w-max">
+          {items.map((item) => (
+            <li key={item.id} className="snap-start">
+              <ProjectCard item={item} onClick={() => onCardClick(item)} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
   }
-  const getDirection = () => {
-    if (containerRef.current) {
-      if (direction === "left") {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "forwards"
-        );
-      } else {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "reverse"
-        );
-      }
-    }
-  };
-  const getSpeed = () => {
-    if (containerRef.current) {
-      if (speed === "fast") {
-        containerRef.current.style.setProperty("--animation-duration", "20s");
-      } else if (speed === "normal") {
-        containerRef.current.style.setProperty("--animation-duration", "40s");
-      } else {
-        containerRef.current.style.setProperty("--animation-duration", "80s");
-      }
-    }
-  };
+
+  /* Desktop: infinite CSS animation */
   return (
     <div
       ref={containerRef}
-      className={cn(
-        "scroller relative z-20 w-screen overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_5%,white_95%,transparent)]",
-        className
-      )}
+      className={cn("relative w-screen overflow-hidden", className)}
     >
+      {/* Left fade */}
+      <div
+        className="absolute left-0 top-0 h-full w-28 z-10 pointer-events-none"
+        style={{ background: "linear-gradient(to right, #000319 20%, transparent 100%)" }}
+      />
       <ul
-        ref={scrollerRef}
         className={cn(
-          " flex min-w-full shrink-0 gap-16 py-4 w-max flex-nowrap",
-          start && "animate-scroll ",
-          pauseOnHover && "hover:[animation-play-state:paused]"
+          "flex min-w-full shrink-0 gap-5 py-6 w-max flex-nowrap",
+          start && "animate-scroll"
         )}
       >
-        {items.map((item, idx) => (
-          <li
-            key={item.id}
-            className="relative rounded-3xl border border-white/[0.1] flex-shrink-0 w-[80vw] md:w-[50vw] xl:w-[30vw] p-5 md:p-8 bg-[#13162d]"
-          >
-            <div className="relative flex items-center justify-center w-full overflow-hidden h-[20vh] lg:h-[30vh] mb-6 md:mb-10 lg:rounded-2xl">
-              {/* Background SVG Pattern instead of Image */}
-              <div className="absolute inset-0 w-full h-full bg-[#13162D] opacity-50 pointer-events-none">
-                <svg
-                  width="100%"
-                  height="100%"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <defs>
-                    <pattern
-                      id="grid-pattern"
-                      width="40"
-                      height="40"
-                      patternUnits="userSpaceOnUse"
-                    >
-                      <path
-                        d="M0 40 L40 0 H20 L0 20 M40 40 V20 L20 40"
-                        stroke="#2a2e5a"
-                        strokeWidth="2"
-                        fill="none"
-                      />
-                    </pattern>
-                  </defs>
-                  <rect width="100%" height="100%" fill="url(#grid-pattern)" />
-                </svg>
-              </div>
-
-              <img
-                src={item.img}
-                alt="cover"
-                className="z-10 absolute bottom-0 rotate-2 hover:rotate-0 transition-all duration-300 rounded-lg shadow-2xl"
-              />
-            </div>
-
-            <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1 mb-2">
-              {item.title}
-            </h1>
-
-            <p className="lg:text-lg lg:font-normal font-light text-sm line-clamp-2 text-[#BEC1DD]">
-              {item.des}
-            </p>
-
-            <div className="flex items-center justify-between mt-7 mb-3">
-              <div className="flex items-center">
-                {item.iconLists.map((icon, index) => (
-                  <div
-                    key={index}
-                    className="border border-white/[.2] rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
-                    style={{
-                      transform: `translateX(-${5 * index + 2}px)`,
-                    }}
-                  >
-                    <img src={icon} alt="icon" className="p-2" />
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex justify-center items-center">
-                <a
-                  href={item.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex lg:text-xl md:text-xs text-sm text-purple items-center cursor-pointer hover:text-white transition-colors"
-                >
-                  Check Live Site
-                  <FaLocationArrow className="ms-3" color="#60A5FA" />
-                </a>
-              </div>
-            </div>
+        {/* Duplicate items for seamless loop */}
+        {[...items, ...items].map((item, i) => (
+          <li key={`${item.id}-${i}`} className="flex-shrink-0">
+            <ProjectCard item={item} onClick={() => onCardClick(item)} />
           </li>
         ))}
       </ul>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
+import { Toaster } from "sonner";
 
 import "./globals.css";
 import { ThemeProvider } from "./provider";
@@ -15,8 +16,15 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Dawn Cobham | Web Developer",
-  description: "Developed by thatdevelopergirl",
+  title: "Dawn Cobham | Frontend Engineer",
+  description:
+    "Frontend Engineer specialising in building fast, accessible, and visually polished web applications. Based in Nigeria.",
+  openGraph: {
+    title: "Dawn Cobham | Frontend Engineer",
+    description:
+      "Frontend Engineer specialising in building fast, accessible, and visually polished web applications.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -38,6 +46,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Toaster richColors position="top-right" />
           {children}
         </ThemeProvider>
       </body>

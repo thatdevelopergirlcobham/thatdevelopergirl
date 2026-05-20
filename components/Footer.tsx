@@ -1,20 +1,18 @@
-import { FaLocationArrow, FaWhatsapp } from "react-icons/fa6";
+import { FaWhatsapp } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
-
 import { socialMedia } from "@/data";
 import MagicButton from "./MagicButton";
 
 const WHATSAPP_NUMBER = "2349165586474";
 const EMAIL = "thatdevelopergirlcobham@gmail.com";
 
-const Footer = ({ onContactPress }: { onContactPress: () => void }) => {
+const Footer = () => {
   return (
-    <footer className="w-full pt-20 pb-10" id="contact">
-      {/* background grid */}
+    <footer className="w-full pt-20 pb-10">
       <div className="w-full absolute left-0 -bottom-72 min-h-96">
         <img
           src="/footer-grid.svg"
-          alt="grid"
+          alt=""
           className="w-full h-full opacity-50"
         />
       </div>
@@ -28,9 +26,7 @@ const Footer = ({ onContactPress }: { onContactPress: () => void }) => {
           achieve your goals.
         </p>
 
-        {/* Contact buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-4 mt-2">
-          {/* WhatsApp */}
           <a
             href={`https://wa.me/${WHATSAPP_NUMBER}`}
             target="_blank"
@@ -44,17 +40,15 @@ const Footer = ({ onContactPress }: { onContactPress: () => void }) => {
             />
           </a>
 
-          {/* Send a message (opens modal) */}
-          <div onClick={onContactPress} className="cursor-pointer">
+          <a href={`mailto:${EMAIL}`}>
             <MagicButton
-              title="Send me a message"
-              icon={<FaLocationArrow />}
-              position="right"
+              title="Send an email"
+              icon={<MdEmail />}
+              position="left"
             />
-          </div>
+          </a>
         </div>
 
-        {/* Email */}
         <a
           href={`mailto:${EMAIL}`}
           className="flex items-center gap-2 mt-6 text-white-200 hover:text-purple transition-colors text-sm md:text-base"
@@ -78,7 +72,7 @@ const Footer = ({ onContactPress }: { onContactPress: () => void }) => {
               rel="noreferrer"
               className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
             >
-              <img src={info.img} alt="icons" width={20} height={20} />
+              <img src={info.img} alt="social" width={20} height={20} />
             </a>
           ))}
         </div>
